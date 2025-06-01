@@ -1,5 +1,3 @@
-name: Python CI
-
 on:
   push:
     branches: [ main ]
@@ -15,9 +13,10 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
-        python-version: '3.11'  # or your desired version
+        python-version: '3.11'
     - name: Install dependencies
-      run: pip install -r requirements.txt 
-      
+      run: pip install -r requirements.txt || true  # (if requirements.txt doesn't exist, don't fail)
+    - name: Run alphabets script
+      run: python print_alphabets.py
     - name: Run tests
       run: pytest
