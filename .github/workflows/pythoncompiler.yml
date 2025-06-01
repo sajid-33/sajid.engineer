@@ -23,13 +23,6 @@ jobs:
           if [ -f requirements.txt ]; then
             pip install -r requirements.txt
           fi
-
-      - name: Run tests
-        run: |
-          if command -v pytest &> /dev/null; then
-            pytest
-          else
-            echo "pytest not found, installing..."
-            pip install pytest
+        
             pytest
           fi
