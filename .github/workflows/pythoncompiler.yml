@@ -16,7 +16,5 @@ jobs:
         python-version: '3.11'
     - name: Install dependencies
       run: pip install -r requirements.txt || true  # (if requirements.txt doesn't exist, don't fail)
-    - name: Run alphabets script
-      run: python print_alphabets.py
     - name: Run tests
       run: pytest
