@@ -1,24 +1,28 @@
-# prime_numbers.py
+# guess_number.py
 
-def is_prime(n):
-    if n <= 1:
-        return False
-    for i in range(2, int(n**0.5) + 1):
-        if n % i == 0:
-            return False
-    return True
+import random
 
-def print_primes_up_to(limit):
-    print(f"Prime numbers up to {limit}:")
-    for num in range(2, limit + 1):
-        if is_prime(num):
-            print(num, end=' ')
-    print()  # for newline
+def guess_the_number():
+    number_to_guess = random.randint(1, 10)
+    tries = 0
 
-# Example usage
+    print("Welcome to the Number Guessing Game!")
+    print("I'm thinking of a number between 1 and 10.")
+
+    while True:
+        try:
+            guess = int(input("Take a guess: "))
+            tries += 1
+
+            if guess < number_to_guess:
+                print("Too low! Try again.")
+            elif guess > number_to_guess:
+                print("Too high! Try again.")
+            else:
+                print(f"Congratulations! You guessed it in {tries} tries.")
+                break
+        except ValueError:
+            print("Please enter a valid number.")
+
 if __name__ == "__main__":
-    try:
-        limit = int(input("Enter the upper limit: "))
-        print_primes_up_to(limit)
-    except ValueError:
-        print("Please enter a valid integer.")
+    guess_the_number()
