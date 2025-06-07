@@ -28,4 +28,4 @@ jobs:
       run: pip install matplotlib 
     - name: Run program
       run: |
-        python3  ${{ github.workspace }}/myprogram.py
+        python3  ${{ github.workspace }}/newF.txt
